@@ -1,0 +1,122 @@
+<div class="d-flex justify-content-start align-items-center title-container">
+  <div>
+    <img [src]="jsonToolsLogoLabel" />
+  </div>
+  <div class="d-flex" id="all-tools" (click)="toggleAllToolsVisibility()">
+    <span class="mr-50">All Tools</span>
+    <div class="svg-wrapper">
+      @if(allToolsShown){
+      <object
+        (click)="toggleAllToolsVisibility()"
+        id="custom-svg"
+        type="image/svg+xml"
+        data="assets/images/icons/svg/chevron-up.svg"
+      ></object>
+      }@else{
+      <object
+        (click)="toggleAllToolsVisibility()"
+        id="custom-svg"
+        type="image/svg+xml"
+        data="assets/images/icons/svg/chevron-down.svg"
+      ></object>
+      }
+    </div>
+  </div>
+</div>
+
+@if(allToolsShown){
+<div class="d-flex justify-content-center align-items-start all-tools-wrapper w-100 px-2 py-3">
+  <div class="row w-100">
+    <div class="col-12 d-flex">
+      <ng-container
+        *ngTemplateOutlet="
+          optionWrapperTemplate;
+          context: {
+            category: 'COUNT',
+            imgSrc1: pasteAndCountIcon,
+            title1: 'Paste and Count',
+            imgSrc2: uploadAndCountIcon,
+            title2: 'Upload and Count'
+          }
+        "
+      ></ng-container>
+      <ng-container
+        *ngTemplateOutlet="
+          optionWrapperTemplate;
+          context: {
+            category: 'CONVERT',
+            imgSrc1: jsonToXlsxIcon,
+            title1: 'JSON to XLSX',
+            imgSrc2: xlsxToJsonIcon,
+            title2: 'XLSX to JSON',
+            imgSrc3: jsonToSqlIcon,
+            title3: 'JSON to SQL Query'
+          }
+        "
+      ></ng-container>
+      <ng-container
+        *ngTemplateOutlet="
+          optionWrapperTemplate;
+          context: {
+            category: 'SPLIT',
+            imgSrc1: jsonDataSplitterIcon,
+            title1: 'JSON Data Splitter',
+          }
+        "
+      ></ng-container>
+      <ng-container
+        *ngTemplateOutlet="
+          optionWrapperTemplate;
+          context: {
+            category: 'FORMAT',
+            imgSrc1: jsonFormatterIcon,
+            title1: 'JSON Formatter',
+          }
+        "
+      ></ng-container>
+    </div>
+  </div>
+</div>
+}
+
+<ng-template
+  #optionWrapperTemplate
+  let-category="category"
+  let-imgSrc1="imgSrc1"
+  let-imgSrc2="imgSrc2"
+  let-imgSrc3="imgSrc3"
+  let-title1="title1"
+  let-title2="title2"
+  let-title3="title3"
+>
+  <div
+    class="col-lg-3 col-md-3 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center"
+  >
+    <h5>{{ category }}</h5>
+    <ng-container
+      *ngTemplateOutlet="optionTemplate; context: { imgSrc: imgSrc1, title: title1 }"
+    ></ng-container>
+    <ng-container
+      *ngTemplateOutlet="optionTemplate; context: { imgSrc: imgSrc2, title: title2 }"
+    ></ng-container>
+    <ng-container
+      *ngTemplateOutlet="optionTemplate; context: { imgSrc: imgSrc3, title: title3 }"
+    ></ng-container>
+  </div>
+</ng-template>
+
+<ng-template #optionTemplate let-imgSrc="imgSrc" let-title="title">
+  @if(!title){
+  <div
+    [style.pointer-events]="'none'"
+    class="tool-option d-flex justify-content-center align-items-center w-100"
+  >
+    &nbsp;
+  </div>
+  }@else {
+  <div class="tool-option d-flex justify-content-center align-items-center w-100">
+    <img [src]="imgSrc" />
+    <span>{{ title }}</span>
+  </div>
+  }
+</ng-template>

@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: #ededf9;
+  overflow-x: hidden;
+}
+
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+app-subheader {
+  position: fixed;
+  width: 100%;
+  top: calc(var(--subheaderPos));
+  z-index: 3;
+  border-top: 1px solid #d4d4d4;
+}
+
+app-header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 3;
+}
+
+// * {
+//   font-family: 'Segoe UI,Tahoma,Geneva,Verdana,sans-serif';
+// }
+
+.content-wrapper {
+  max-width: 1600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
