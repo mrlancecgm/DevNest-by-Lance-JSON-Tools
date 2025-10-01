@@ -9,5 +9,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class Subheader {
   ngOnInit(){
     document.documentElement.style.setProperty('--subheaderPos','60px');
+    document.documentElement.style.setProperty('--mainDivMT', '150px');
   }
 }

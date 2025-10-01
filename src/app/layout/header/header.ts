@@ -20,6 +20,8 @@ export class Header {
   toggleAllToolsVisibility(){
     this.allToolsShown = !this.allToolsShown;
     let subheaderPos = this.allToolsShown ? '280px' : '60px';
+    let mainDivMT = subheaderPos == '60px' ? '150px' : '370px';
     document.documentElement.style.setProperty('--subheaderPos', subheaderPos);
+    document.documentElement.style.setProperty('--mainDivMT', mainDivMT);
   }
 }

@@ -1,0 +1,154 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="display-1" style="color: #00004f; font-weight: 400">Your Go-To Solution</div>
+  <div class="display-1" style="color: #bf0000; font-weight: 400">for Hassle-Free</div>
+  <div class="display-1" style="color: #00004f; font-weight: 400">JSON File Management</div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center w-100 px-2 py-3">
+  <div class="col-12">
+    <div class="row">
+      <ng-container
+        *ngTemplateOutlet="
+          flipCardTemplate;
+          context: {
+            imgSrc: 'assets/images/logos/paste_and_count.png',
+            header: 'JSON Counter',
+            subheader: 'Paste and Count',
+            widthTest: '30%',
+            text: 'Quickly paste your JSON data to count the number of objects, arrays, and other elements in your JSON.',
+            redirectText: 'JSON COUNTER: Paste and Count'
+          }
+        "
+      ></ng-container>
+      <ng-container
+        *ngTemplateOutlet="
+          flipCardTemplate;
+          context: {
+            imgSrc: 'assets/images/logos/upload_and_count.png',
+            header: 'JSON Counter',            
+            subheader: 'Upload and Count',
+            widthTest: '30%',
+            text: 'Upload your JSON file to count the number of objects, arrays, and other elements in your data.',
+            redirectText: 'JSON COUNTER: Upload and Count'
+          }
+        "
+      ></ng-container>
+      <ng-container
+        *ngTemplateOutlet="
+          flipCardTemplate;
+          context: {
+            imgSrc: 'assets/images/logos/json-to-xlsx.png',
+            header: 'JSON Converter',            
+            subheader: 'JSON to XLSX',
+            widthTest: '85%',
+            text: 'Convert your JSON data into a well-structured XLSX (Excel) file format.',
+            redirectText: 'JSON CONVERTER: JSON to XLSX',
+          }
+        "
+      ></ng-container>
+      <ng-container
+        *ngTemplateOutlet="
+          flipCardTemplate;
+          context: {
+            imgSrc: 'assets/images/logos/xlsx-to-json.png',
+            header: 'JSON Converter',
+            subheader: 'XLSX to JSON',
+            widthTest: '85%',
+            text: 'Convert your XLSX (Excel) data into JSON format for easy integration and manipulation.',
+            redirectText: 'JSON CONVERTER: XLSX to JSON'
+          }
+        "
+      ></ng-container>
+    </div>
+    <div class="row">
+      <ng-container
+        *ngTemplateOutlet="
+          flipCardTemplate;
+          context: {
+            imgSrc: 'assets/images/logos/json_splitter_logo.png',
+            header: 'JSON Data Splitter',
+            widthTest: '35%',
+            text: 'Split large JSON files into smaller, manageable chunks for easier processing and sharing.',
+            redirectText: 'JSON COUNTER: Paste and Count'
+          }
+        "
+      ></ng-container>
+      <ng-container
+        *ngTemplateOutlet="
+          flipCardTemplate;
+          context: {
+            imgSrc: 'assets/images/logos/json_formatter_logo.png',
+            header: 'JSON Formatter',          
+            widthTest: '40%',
+            text: 'Format and beautify your JSON data for better readability and easier editing.',
+            redirectText: 'JSON Formatter'
+          }
+        "
+      ></ng-container>
+      <ng-container
+        *ngTemplateOutlet="
+          flipCardTemplate;
+          context: {
+            imgSrc: 'assets/images/logos/xlsx-to-sql.png',
+            header: 'SQL Query Generator',            
+            subheader: 'XLSX to SQL',
+            widthTest: '85%',
+            text: 'Convert your JSON data into a well-structured XLSX (Excel) file format.',
+            redirectText: 'JSON CONVERTER: JSON to XLSX',
+          }
+        "
+      ></ng-container>
+      <ng-container
+        *ngTemplateOutlet="
+          flipCardTemplate;
+          context: {
+            imgSrc: 'assets/images/logos/json-to-sql.png',
+            header: 'SQL Query Generator',            
+            subheader: 'JSON to SQL',
+            widthTest: '85%',
+            text: 'Convert your JSON data into a well-structured XLSX (Excel) file format.',
+            redirectText: 'JSON CONVERTER: JSON to XLSX',
+          }
+        "
+      ></ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template
+  #flipCardTemplate
+  let-imgSrc="imgSrc"
+  let-header="header"
+  let-subheader="subheader"
+  let-text="text"
+  let-redirectText="redirectText"
+  let-url="url"
+  let-widthTest="widthTest"
+>
+  <div
+    class="col-lg-3 col-md-3 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center"
+  >
+    <div class="flip-card w-100">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="image-header-container">
+            <img [src]="imgSrc" [style.width]="widthTest" />
+            <h5 style="font-weight: 700">{{ header }}</h5>
+            <h6 style="font-weight: 500">{{ subheader }}</h6>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <p>
+            {{ text }}
+          </p>
+          <span style="font-size: large; color: white !important"
+            >Try
+            <a
+              ><b>{{ redirectText }}</b></a
+            >.</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
