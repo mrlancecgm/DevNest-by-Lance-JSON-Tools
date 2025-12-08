@@ -16,7 +16,8 @@
             subheader: 'Paste and Count',
             widthTest: '30%',
             text: 'Quickly paste your JSON data to count the number of objects, arrays, and other elements in your JSON.',
-            redirectText: 'JSON COUNTER: Paste and Count'
+            redirectText: 'JSON COUNTER: Paste and Count',
+            link: '/json-counter/paste-and-count'
           }
         "
       ></ng-container>
@@ -124,6 +125,7 @@
   let-redirectText="redirectText"
   let-url="url"
   let-widthTest="widthTest"
+  let-link="link"
 >
   <div
     class="col-lg-3 col-md-3 col-sm-6 col-12 d-flex flex-column justify-content-center align-items-center"
@@ -143,7 +145,7 @@
           </p>
           <span style="font-size: large; color: white !important"
             >Try
-            <a
+            <a routerLink="{{ link }}"
               ><b>{{ redirectText }}</b></a
             >.</span
           >

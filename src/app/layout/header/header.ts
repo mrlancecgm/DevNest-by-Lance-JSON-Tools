@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,12 @@ export class Header {
   public jsonDataSplitterIcon = "assets/images/icons/png/json_splitter_logo.png";
   public jsonFormatterIcon = "assets/images/icons/png/json_formatter.png";
   public allToolsShown: boolean = false;
+
+  constructor(private router: Router) {}
+
+  goTo(targetUrl: string) {
+    this.router.navigate([`/${targetUrl}`]);
+  }
 
   toggleAllToolsVisibility(){
     this.allToolsShown = !this.allToolsShown;

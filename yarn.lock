@@ -201,6 +201,14 @@
   optionalDependencies:
     lmdb "3.4.2"
 
+"@angular/cdk@^20.2.14", "@angular/cdk@20.2.14":
+  version "20.2.14"
+  resolved "https://registry.npmjs.org/@angular/cdk/-/cdk-20.2.14.tgz"
+  integrity sha512-7bZxc01URbiPiIBWThQ69XwOxVduqEKN4PhpbF2AAyfMc/W8Hcr4VoIJOwL0O1Nkq5beS8pCAqoOeIgFyXd/kg==
+  dependencies:
+    parse5 "^8.0.0"
+    tslib "^2.3.0"
+
 "@angular/cli@^20.2.2":
   version "20.3.3"
   resolved "https://registry.npmjs.org/@angular/cli/-/cli-20.3.3.tgz"
@@ -225,7 +233,7 @@
     yargs "18.0.0"
     zod "3.25.76"
 
-"@angular/common@^20.0.0", "@angular/common@^20.2.0", "@angular/common@20.3.2":
+"@angular/common@^20.0.0", "@angular/common@^20.0.0 || ^21.0.0", "@angular/common@^20.2.0", "@angular/common@20.3.2":
   version "20.3.2"
   resolved "https://registry.npmjs.org/@angular/common/-/common-20.3.2.tgz"
   integrity sha512-5V9AzLhCA1dNhF+mvihmdHoZHbEhIb1jNYRA1/JMheR+G7NR8Mznu6RmWaKSWZ4AJeSJN8rizWN2wpVPWTKjSQ==
@@ -253,14 +261,14 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^20.0.0", "@angular/core@^20.2.0", "@angular/core@20.3.2":
+"@angular/core@^20.0.0", "@angular/core@^20.0.0 || ^21.0.0", "@angular/core@^20.2.0", "@angular/core@20.3.2":
   version "20.3.2"
   resolved "https://registry.npmjs.org/@angular/core/-/core-20.3.2.tgz"
   integrity sha512-88uPgs5LjtnywnQaZE2ShBb1wa8IuD6jWs4nc4feo32QdBc55tjebTBFJSHbi3mUVAp0eS4wI6ITo0YIb01H4g==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@^20.0.0", "@angular/forms@^20.2.0":
+"@angular/forms@^20.0.0", "@angular/forms@^20.0.0 || ^21.0.0", "@angular/forms@^20.2.0":
   version "20.3.2"
   resolved "https://registry.npmjs.org/@angular/forms/-/forms-20.3.2.tgz"
   integrity sha512-ECIbtwc7n9fPbiZXZVaoZpSiOksgcNbZ27oUN9BT7EmoXRzBw6yDL2UX6Ig7pEKhQGyBkKB+TMerRwTDVkkCWg==
@@ -277,7 +285,14 @@
     tinyglobby "^0.2.12"
     yargs "^18.0.0"
 
-"@angular/platform-browser@^20.0.0", "@angular/platform-browser@^20.2.0", "@angular/platform-browser@20.3.2":
+"@angular/material@^20.2.14":
+  version "20.2.14"
+  resolved "https://registry.npmjs.org/@angular/material/-/material-20.2.14.tgz"
+  integrity sha512-IbAgV6XLsvmHiJzxycVhcNC1PA4M30qi+ERCOir6cT333Bxm8vDV32gsOjfL52uzG5YRARroPC+8s1XqR2oxeA==
+  dependencies:
+    tslib "^2.3.0"
+
+"@angular/platform-browser@^20.0.0", "@angular/platform-browser@^20.0.0 || ^21.0.0", "@angular/platform-browser@^20.2.0", "@angular/platform-browser@20.3.2":
   version "20.3.2"
   resolved "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-20.3.2.tgz"
   integrity sha512-d9XcT2UuWZCc0UOtkCcPEnMcOFKNczahamT/Izg3H9jLS3IcT6l0ry23d/Xf0DRwhLYQdOZiG7l8HMZ1sWPMOg==

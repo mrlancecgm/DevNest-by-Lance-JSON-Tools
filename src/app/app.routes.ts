@@ -8,6 +8,10 @@ export const routes: Routes = [
         component: Home
     },
     {
+        path: 'json-counter',
+        loadChildren: () => import('../app/main/features/json-counter/json-counter-module').then(m => m.JsonCounterModule)
+    },
+    {
         path: '',
         pathMatch: 'full',
         redirectTo: 'home'

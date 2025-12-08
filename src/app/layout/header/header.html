@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-start align-items-center title-container">
-  <div>
-    <img [src]="jsonToolsLogoLabel" />
+  <div (click)="goTo('home')" style="cursor: pointer;">
+    <img [src]="jsonToolsLogoLabel"/>
   </div>
   <div class="d-flex" id="all-tools" (click)="toggleAllToolsVisibility()">
     <span class="mr-50">All Tools</span>
