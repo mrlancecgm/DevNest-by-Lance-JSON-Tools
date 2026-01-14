@@ -22,3 +22,13 @@
   color: #fff;
 }
 
+.btn-mono {
+  background: #ededfa;
+  color: #00004f;
+  &:hover {
+    background: transparent !important;
+    color:#ededfa !important;
+    border-color: #ededfa !important;
+  }
+}
+

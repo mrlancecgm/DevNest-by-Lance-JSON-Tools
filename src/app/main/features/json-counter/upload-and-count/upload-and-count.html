@@ -9,18 +9,33 @@
           <span class="blue-text">COUNT</span>
         </div>
       </div>
-      <div class="d-flex justify-content-center align-items-center w-100 text-center mt-2">
-        <span style="font-size: large;"
-          >Upload your JSON file to count the number of objects, arrays, and other elements in your
-          data.</span
-        >
-      </div>
     </div>
   </div>
 
-  <div class="d-flex justify-content-center align-items-center mt-3">
-    <button class="btn btn-primary m-1">
+  <div class="d-flex flex-column justify-content-center align-items-center mt-3 pb-3">
+    <!-- <button class="btn btn-primary m-1">
       <mat-icon>cloud_upload</mat-icon><span style="margin-left: 5px">Upload JSON File</span>
     </button>
+  </div> -->
+    <div class="upload-backdrop d-flex justify-content-center align-items-center">
+      <div class="upload-backdrop-broken-lines d-flex justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <img class="json-file-icon-upload-and-count" [src]="jsonFileIcon"/>
+          <button class="btn btn-mono m-1">
+            <mat-icon>add</mat-icon>
+            <!-- @if(!isBelow375Px) {
+            <span [style.margin-left]="!isBelow375Px ? '5px' : '0px'">Paste</span>
+            } -->
+            Browse Files
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center upload-and-count-tagline-container mt-1 p-2">
+      <span class="text-center"
+        >Upload your JSON file to count the number of objects, arrays, and other elements in your
+        data.</span
+      >
+    </div>
   </div>
 </div>

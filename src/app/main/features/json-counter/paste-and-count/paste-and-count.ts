@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { distinctUntilChanged, fromEvent, map, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-paste-and-count',
-  imports: [MatIconModule],
+  imports: [MatIconModule, CommonModule],
   templateUrl: './paste-and-count.html',
   styleUrl: './paste-and-count.scss',
   encapsulation: ViewEncapsulation.None,
@@ -12,14 +14,39 @@ export class PasteAndCount {
   public pasteAndCountLogo: string = 'assets/images/logos/paste_and_count.png';
   public totalCount: number = 0;
   public hasError: boolean = false;
+  private resizeSubscription!: Subscription;
+  public isBelow768Px: boolean = false;
+  public isBelow375Px: boolean = false;
 
   @ViewChild('jsonInput') jsonInput?: ElementRef;
+
+  ngOnInit() {
+    const width = window.innerWidth;
+    this.isBelow768Px = width < 768;
+    this.isBelow375Px = width < 375;
+  }
 
   ngAfterViewInit() {
     this.setStyleAttributes();
   }
 
+  ngAfterContentChecked() {
+    if (!this.resizeSubscription) {
+      this.resizeSubscription = fromEvent(window, 'resize')
+        .pipe(
+          map(() => ({ width: window.innerWidth, height: window.innerHeight })),
+          distinctUntilChanged(
+            (prev, curr) => prev.width === curr.width && prev.height === curr.height
+          )
+        )
+        .subscribe(() => this.setStyleAttributes());
+    }
+  }
+
   setStyleAttributes() {
+    const screenW = window.innerWidth;
+    this.isBelow768Px = screenW < 768;
+    this.isBelow375Px = screenW < 375;
     const style = document.documentElement.style;
     const screenH = window.innerHeight;
     const header = document.querySelector('app-header');
@@ -73,6 +100,12 @@ export class PasteAndCount {
     } else {
       const dataCount = Array.isArray(parsedJsonData) ? parsedJsonData.length : 0;
       this.totalCount = dataCount;
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.resizeSubscription) {
+      this.resizeSubscription.unsubscribe();
     }
   }
 }

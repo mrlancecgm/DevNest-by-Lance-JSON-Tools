@@ -1,7 +1,13 @@
 #paste-and-count-logo {
-    width: 45%;
+  width: 45%;
+}
+
+@media screen and (max-width: 767px) {
+  #paste-and-count-logo {
+    width: 10%;
+  }
 }
 
 .json-container {
-    height: calc(var(--jsonContainerH));
+  height: calc(var(--jsonContainerH));
 }

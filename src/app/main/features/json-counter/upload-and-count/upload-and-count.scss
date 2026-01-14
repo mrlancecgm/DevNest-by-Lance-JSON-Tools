@@ -2,3 +2,27 @@
     aspect-ratio: auto;
     height: calc(var(--uploadAndCountLogoH));
 }
+
+.upload-backdrop {
+    width: calc(var(--uploadBackdropW));
+    background-color: #00004f;
+    aspect-ratio: 3/1;
+    border-radius: 10px;
+}
+
+.upload-backdrop-broken-lines {
+    width: calc(var(--uploadBackdropBrokenLinesW));
+    height: calc(var(--uploadBackdropBrokenLinesH));
+    border: 4px dashed #fff;    
+    border-radius: 10px;
+}
+
+.upload-and-count-tagline-container {
+    width: calc(var(--uploadNCountTaglineContainerW));
+    aspect-ratio: 12/1;
+    border-radius: 10px;
+    border: 5px double #00004f;    
+}
+.json-file-icon-upload-and-count {
+    width: calc(var(--jsonFileIconUploadAndCountW));
+}
