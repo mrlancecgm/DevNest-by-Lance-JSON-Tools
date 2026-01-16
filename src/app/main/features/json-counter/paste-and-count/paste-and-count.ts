@@ -17,6 +17,7 @@ export class PasteAndCount {
   private resizeSubscription!: Subscription;
   public isBelow768Px: boolean = false;
   public isBelow375Px: boolean = false;
+  public textAreaAsInput: boolean = false;
 
   @ViewChild('jsonInput') jsonInput?: ElementRef;
 
@@ -75,6 +76,7 @@ export class PasteAndCount {
       console.log('Pasted content:', clipboardText);
       if (this.jsonInput) {
         this.jsonInput.nativeElement.value = clipboardText;
+        this.textAreaAsInput = clipboardText.length > 0;
         this.getCount();
       }
     } catch (error) {
@@ -88,6 +90,7 @@ export class PasteAndCount {
       this.jsonInput.nativeElement.value = '';
       this.totalCount = 0;
       this.hasError = false;
+      this.textAreaAsInput = false;
     }
   }
 

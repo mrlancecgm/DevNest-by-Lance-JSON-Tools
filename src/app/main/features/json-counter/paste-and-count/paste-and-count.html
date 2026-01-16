@@ -39,7 +39,7 @@
           }}</span>
         </div>
         <div class="d-flex justify-content-end align-items-end">
-          <button (click)="clearInput()" class="btn btn-danger m-1">
+          <button [disabled]="!textAreaAsInput" (click)="clearInput()" class="btn btn-danger m-1">
             <mat-icon>clear</mat-icon>
             @if(!isBelow375Px) {
             <span [style.margin-left]="!isBelow375Px ? '5px' : '0px'">Clear</span>
