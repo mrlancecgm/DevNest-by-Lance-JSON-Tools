@@ -20,7 +20,10 @@ export class Header {
 
   constructor(private router: Router) {}
 
-  goTo(targetUrl: string) {
+  navigateTo(targetUrl: string) {
+    if(targetUrl != 'home') {
+      this.toggleAllToolsVisibility();
+    }    
     this.router.navigate([`/${targetUrl}`]);
   }
 

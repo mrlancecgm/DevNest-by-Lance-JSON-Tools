@@ -65,23 +65,32 @@ export class PasteAndCount {
       mainDivMT = parseInt(mainDivMTString, 10);
     }
     totalHeadHeight = totalHeadHeight + mainDivMT;
-    console.log('Total Head Height: ', totalHeadHeight);
     const jsonContainerH = screenH - totalHeadHeight;
     style.setProperty('--jsonContainerH', `${jsonContainerH * 0.9}px`);
   }
 
+  isPotentialArray(text: string){
+    return text.startsWith("[") && text.endsWith("]")
+  }
+
   async pasteFromClipboard() {
     try {
-      const clipboardText = await navigator.clipboard.readText();
-      console.log('Pasted content:', clipboardText);
+      let clipboardText = await navigator.clipboard.readText();
+      let clipboardText_reformat = "";
+      let isReformat: boolean = false;
+      if(!this.isPotentialArray(clipboardText)){
+        clipboardText_reformat = `[${clipboardText}]`;
+        isReformat = true;
+      }
       if (this.jsonInput) {
         this.jsonInput.nativeElement.value = clipboardText;
-        this.textAreaAsInput = clipboardText.length > 0;
-        this.getCount();
+        this.textAreaAsInput = clipboardText.length > 0;   
+        const param = isReformat ? clipboardText_reformat : undefined;
+        this.getCount(param);
       }
     } catch (error) {
+      console.log("Error:",error);
       this.hasError = true;
-      console.error('Error pasting from clipboard:', error);
     }
   }
 
@@ -94,12 +103,26 @@ export class PasteAndCount {
     }
   }
 
-  getCount() {
-    let jsonData = this.jsonInput?.nativeElement.value;
-    let parsedJsonData = JSON.parse(jsonData);
-    let jsonTitle: any = Object.keys(parsedJsonData)[0];
+  getCount(json_input_reformat?:string) {
+    const processJSON = (json_input: string) => {
+      let jsonData = json_input;
+      let parsedJsonData = JSON.parse(jsonData);
+      return {
+        title: Object.keys(parsedJsonData)[0],
+        data: JSON.parse(jsonData)
+      };
+    }
+    let json_input_text = json_input_reformat 
+      ? json_input_reformat 
+      : this.jsonInput?.nativeElement.value;
+
+    let json_details = processJSON(json_input_text);
+    const jsonTitle = json_details.title;
+    const parsedJsonData = json_details.data;
     if (jsonTitle !== '0') {
-      this.totalCount = parsedJsonData[jsonTitle].length;
+      let json_details = processJSON(`[${json_input_text}]`);
+      const dataCount = Array.isArray(json_details.data) ? json_details.data.length : 0;
+      this.totalCount = dataCount;
     } else {
       const dataCount = Array.isArray(parsedJsonData) ? parsedJsonData.length : 0;
       this.totalCount = dataCount;

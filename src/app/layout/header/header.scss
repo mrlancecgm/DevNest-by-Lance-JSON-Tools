@@ -50,3 +50,12 @@
     }
   }
 }
+
+.tools-arrow {
+  width: 18px;
+  transition: transform 0.3s ease-in-out;
+  &.flipped {
+    transform: rotate(180deg);
+    transform-origin: center center;
+  }
+}
